@@ -5,7 +5,7 @@ import "$ZMICRO_PACKAGES_PATH/$PACKAGE_NAME/config"
 import "$ZMICRO_PACKAGES_PATH/$PACKAGE_NAME/core"
 
 if [ "$(os::is_macos)" = "true" ]; then
-  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+  export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 fi
 
 help() {
@@ -13,11 +13,11 @@ help() {
   echo "  zmicro mysql-client <args ...>"
   echo ""
 
-  psql --help
+  mysql --help
 }
 
 version() {
-  psql --version
+  mysql --version
 }
 
 core() {
@@ -37,7 +37,7 @@ core() {
     version
     ;;
   *)
-    psql "$@"
+    mysql "$@"
     ;;
   esac
 }
